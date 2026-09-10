@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DORA Compliance Scanner</title>
+<link rel="icon" href="jk-logo.png">
+<meta name="description" content="A self-assessment coverage tool for the EU Digital Operational Resilience Act (Regulation (EU) 2022/2554). Mark what evidence you actually hold against 19 requirements across five chapters and see your coverage, chapter by chapter.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">
+  <div class="titlebar">
+  <h1>DORA Compliance Scanner</h1>
+  <a class="brand" href="https://github.com/Jeevan-0508" target="_blank" rel="noopener" title="Jeevan Siddhabhaktula — Risk. Governance. AI."><img src="jk-logo.png" alt="JK" width="44" height="44"></a>
+  </div>
+  <p class="sub">A self-assessment aid for the EU Digital Operational Resilience Act (Regulation (EU) 2022/2554).
+  Work through 19 requirements drawn from Chapters II&ndash;VI &mdash; ICT risk management, incident reporting,
+  resilience testing, third-party risk and information sharing &mdash; mark the evidence you actually hold, and
+  see your coverage by chapter and overall.</p>
+  <p class="src" id="src">Loading requirement model&hellip;</p>
+</div></header>
+
+<main>
+  <div id="err"></div>
+
+  <p class="note"><b>This is not a compliance certification and not legal advice.</b> It reports
+  <em>requirement coverage</em>: the share of the model's requirements you can currently evidence as
+  Present or Partial. Full coverage here means your evidence is consistent with the requirement as
+  plainly described &mdash; not that a supervisor, auditor or court has confirmed compliance. It applies
+  regardless of whether you are in scope of DORA as a financial entity; treat it as a structured way to
+  read the regulation, not as a claim of financial-services DORA compliance experience.
+  Everything runs in your browser and nothing you enter is transmitted, logged or sent anywhere &mdash;
+  your answers are only ever saved to this browser's local storage, so you can close the tab and come
+  back to where you left off.</p>
+
+  <section class="step" id="step1">
+    <h2><i>1</i> Work the checklist <em id="progress"></em></h2>
+    <div class="inner">
+      <p class="hint">Mark <b>Present</b> only where you have evidence you could show someone (a document, a
+      log, a test report). <b>Partial</b> means it exists but is incomplete or overdue for review.
+      <b>Absent</b> means you checked and it is not there. <b>Unknown</b> is the honest default and is
+      reported as a gap rather than quietly counted as absent.</p>
+      <div class="bar" style="margin-bottom:14px">
+        <button class="ghost" id="btn-example">Load worked example</button>
+        <button class="ghost" id="btn-reset">Reset</button>
+      </div>
+      <div id="checklist"></div>
+    </div>
+  </section>
+
+  <section class="step" id="step2">
+    <h2><i>2</i> Coverage summary</h2>
+    <div class="inner">
+      <div id="overall"></div>
+      <div class="bar" style="margin:14px 0">
+        <button class="act" id="btn-report">Download Markdown report</button>
+        <button class="ghost" id="btn-json">Download JSON</button>
+      </div>
+      <h3>Open gaps &mdash; Absent or Unknown</h3>
+      <div id="gaps"></div>
+    </div>
+  </section>
+
+  <section class="step" id="about">
+    <h2><i>i</i> Scope of this model</h2>
+    <div class="inner" style="color:var(--dim);font-size:13.5px">
+      <p>The model covers Chapters II&ndash;VI of Regulation (EU) 2022/2554 &mdash; the obligations a
+      financial entity applies to itself. Chapter V Section II (the oversight framework for critical ICT
+      third-party providers) is a duty of the European Supervisory Authorities, not of financial entities,
+      and is out of scope. Chapters I, VII&ndash;IX (definitions, competent authorities, delegated acts,
+      transitional provisions) are institutional or administrative rather than self-assessable controls,
+      and are also out of scope.</p>
+      <p>Each requirement is a plain-language reading of one article's official title and general scope. It
+      is a summary for orientation, not a verbatim quotation of operative legal text &mdash; read the
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32022R2554" target="_blank" rel="noopener">regulation itself</a>
+      before relying on any finding here.</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  Built by <a href="https://github.com/Jeevan-0508" target="_blank" rel="noopener">Jeevan Siddhabhaktula</a>.
+  Companion projects:
+  <a href="https://jeevan-0508.github.io/ai-governance-control-room/docs/" target="_blank" rel="noopener">AI Risk Control Room</a>,
+  <a href="https://jeevan-0508.github.io/freight-risk-atlas/" target="_blank" rel="noopener">Freight Risk Atlas</a>,
+  <a href="https://jeevan-0508.github.io/eu-ai-act-scanner/" target="_blank" rel="noopener">EU AI Act Scanner</a>.
+</div></footer>
+
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
