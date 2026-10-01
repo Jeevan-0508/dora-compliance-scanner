@@ -3,11 +3,11 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url)) + '/..';
-const Engine = (await import(path.join(ROOT, 'docs', 'engine.js'))).default
-  ?? (await import(path.join(ROOT, 'docs', 'engine.js')));
+const loaded = await import(pathToFileURL(path.join(ROOT, 'docs', 'engine.js')).href);
+const Engine = loaded.default ?? loaded;
 const MODEL = JSON.parse(readFileSync(path.join(ROOT, 'data', 'requirements.json'), 'utf8'));
 
 let passed = 0;
