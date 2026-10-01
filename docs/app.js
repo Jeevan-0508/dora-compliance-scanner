@@ -110,24 +110,7 @@ function renderSummary() {
 /* ---------- export ---------- */
 
 function payload() {
-  const chapters = Engine.chapterList(MODEL).map(ch => {
-    const s = Engine.scoreOf(ch.reqs, statuses);
-    return {
-      chapter: ch.id, title: ch.title,
-      coverage: Math.round(s.coverage * 100),
-      requirements: ch.reqs.map(r => ({ id: r.id, article: r.article, title: r.article_title, status: Engine.statusOf(statuses, r.id) }))
-    };
-  });
-  const overall = Engine.scoreOf(MODEL.requirements, statuses);
-  return {
-    generated: new Date().toISOString(),
-    tool: 'DORA Compliance Scanner',
-    framework: { name: MODEL.meta.framework, citation: MODEL.meta.citation, version: MODEL.meta.version },
-    method: 'Coverage is the share of requirement weight marked Present or Partial. It is not a certification of DORA compliance and not legal advice.',
-    overall_coverage: Math.round(overall.coverage * 100),
-    evidence_completeness: Math.round(overall.completeness * 100),
-    chapters
-  };
+  return Engine.assessment(MODEL, statuses);
 }
 
 function markdown() {
