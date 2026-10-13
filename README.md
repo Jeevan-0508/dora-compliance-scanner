@@ -8,6 +8,8 @@ actually hold for each, and see your coverage — chapter by chapter and overall
 
 **Live tool: https://jeevan-0508.github.io/dora-compliance-scanner/**
 
+<p align="center"><a href="docs/getting-started.md">Getting started</a> · <a href="docs/quality-review.md">Quality review</a></p>
+
 It runs entirely in the browser. Nothing you type is transmitted, logged or sent anywhere — your answers
 are saved only to this browser's local storage, so you can close the tab and pick up where you left off.
 
